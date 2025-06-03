@@ -1,4 +1,4 @@
-let classRoom = [
+ let classRoom = [
     {
         "Marnie" : [
                 {"Monday" : true},
@@ -38,3 +38,14 @@ let classRoom = [
 ];
 
 // YOUR CODE BELOW
+function attendanceCheck(day) {
+    let presentStudents = [];
+    classRoom.forEach(student => {
+        const name = Object.keys(student)[0];
+        const attendance = student[name].find(att => att[day]);
+        if (attendance) {
+            presentStudents.push(name);
+        }
+    });
+    return presentStudents;
+}

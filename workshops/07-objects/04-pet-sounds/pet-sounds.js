@@ -38,3 +38,7 @@ let animalNoises = [
 ];
 
 // YOUR CODE BELOW
+function petSounds(animal, country){
+  const animals = animal[0].toUpperCase() + animal.slice(1) + 's';
+  return animals + ' in ' + country + ' say ' + animalNoises.find(obj => obj[animal])[animal][country];
+}
