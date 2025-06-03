@@ -23,3 +23,29 @@ let tacoCatInc = {
 };
 
 // YOUR CODE BELOW
+tacoCatInc.currentInventory = function() {
+  let sum = 0;
+  const inventory = [
+    this.gourmetShell,
+    this.gourmetFishFilling,
+    this.gourmetVeggie,
+    this.gourmetSeasoning
+  ];
+  for (const category of inventory) {
+    for (const item in category) {
+      sum += category[item].quantity * category[item].cost;
+    }
+  }
+  return sum;
+}
+
+tacoCatInc.sale = function(ordersObj){
+  let orderCost = 0;
+  orders = Object.keys(ordersObj);
+  for (order of orders){
+    this[order][ordersObj[order]].quantity--;
+    orderCost += this[order][ordersObj[order]].cost;
+  }
+  this.cash += orderCost;
+  return orderCost;
+}
